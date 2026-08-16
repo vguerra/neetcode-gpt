@@ -26,7 +26,7 @@ class Solution:
 
             # L = (1/n) np.sum(residual ** 2)
             gradW = 2. * X.T @ residual / n
-            gradB = 2. * np.sum(residual) / n
+            gradB = 2. * np.mean(residual)
             
 
             w = w - lr * gradW
