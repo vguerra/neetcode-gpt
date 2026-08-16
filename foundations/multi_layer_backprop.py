@@ -38,7 +38,7 @@ class Solution:
         db2 = dz2[0] # (1, 1)
 
         da1 = dz2 @ W2_arr # (1, 2)
-        dz1 = da1 * np.where(z1 > 0, 1.0, 0.) # (1, 2)
+        dz1 = da1 * (z1 > 0).astype(np.float32) # (1, 2)
 
         dW1 = dz1.T @ x_arr[None, :]
         db1 = dz1[0]
