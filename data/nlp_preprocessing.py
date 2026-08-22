@@ -9,9 +9,10 @@ class Solution:
         # 2. Encode each sentence by replacing words with their IDs
         # 3. Combine positive + negative into one list of tensors
         # 4. Pad shorter sequences with 0s using nn.utils.rnn.pad_sequence(tensors, batch_first=True)
-        splitted_pos = [sentence.split(' ') for sentence in positive]
-        splitted_neg = [sentence.split(' ') for sentence in negative]
-        splitted_all = splitted_pos + splitted_neg
+        # splitted_pos = [sentence.split(' ') for sentence in positive]
+        # splitted_neg = [sentence.split(' ') for sentence in negative]
+        # splitted_all = splitted_pos + splitted_neg
+        splitted_all = [sentence.split(' ') for sentence in positive + negative]
         all_words = set([word for sentence in splitted_all for word in sentence])
         word2id = {word:id+1 for id, word in enumerate(sorted(all_words))}
 
